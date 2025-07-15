@@ -392,16 +392,20 @@ class quiz_downloadsubmissions_report extends mod_quiz\local\reports\attempts_re
                     $pathprefix = $prefix2 . '/' . $prefix1;
                 }
 
-                // Send files for zipping.
-                // I. File attachments/submissions.
-                $fscount = 0;
-                foreach ($files as $zipfilepath => $file) {
-                    $fscount++;
-                    $zipfilename = $file->get_filename();
-                    $pathfilename = $pathprefix . $file->get_filepath() . $prefix3 . 'filesubmission' . '_' . $zipfilename;
+    			// Send files for zipping.
+    			// I. File attachments/submissions.
+    			$fscount = 0;
+	    		foreach ($files as $zipfilepath => $file) {
+	    		    $fscount++;
+	    			$zipfilename = $file->get_filename();
+
+                    // Retain original filenames or attach "attachment_"
+                    $retainfilenames = $data->retainfilenames == 1 ? '' : $prefix3 . 'attachment_';
+                    $pathfilename = $pathprefix . $file->get_filepath() . $retainfilenames . $zipfilename;
+
                     $pathfilename = clean_param($pathfilename, PARAM_PATH);
-                    $filesforzipping[$pathfilename] = $file;
-                }
+	    			$filesforzipping[$pathfilename] = $file;
+	    		}
 
                 // II. File containing text response.
                 if ($textfile) {
