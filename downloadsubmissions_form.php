@@ -53,26 +53,26 @@ class quiz_downloadsubmissions_settings_form extends moodleform {
         $mform->setType('mode', PARAM_ALPHA);
 
         $mform->addElement('header', 'preferencespage',
-                get_string('setpreferences', 'quiz_downloadsubmissions'));
+            get_string('setpreferences', 'quiz_downloadsubmissions'));
 
         $mform->addElement('select', 'folders', get_string('setfolderhierarchy', 'quiz_downloadsubmissions'), [
-                'questionwise'    => get_string('essayquestionwise', 'quiz_downloadsubmissions'),
-                'attemptwise'     => get_string('userattemptwise', 'quiz_downloadsubmissions'),
+            'questionwise'    => get_string('essayquestionwise', 'quiz_downloadsubmissions'),
+            'attemptwise'     => get_string('userattemptwise', 'quiz_downloadsubmissions'),
         ]);
 
         $mform->addElement('select', 'textresponse', get_string('includetextresponsefile', 'quiz_downloadsubmissions'), [
-                '1'   => get_string('yes'),
-                '0'   => get_string('no'),
+            '1'   => get_string('yes'),
+            '0'   => get_string('no'),
         ]);
 
         $mform->addElement('select', 'questiontext', get_string('includequestiontextfile', 'quiz_downloadsubmissions'), [
-                '1'   => get_string('yes'),
-                '0'   => get_string('no'),
+            '1'   => get_string('yes'),
+            '0'   => get_string('no'),
         ]);
 
         $mform->addElement('select', 'retainfilenames', 'Retain Filenames', [
-		        '1'   => 'Yes',
-		        '0'   => 'No',
+            '1'   => 'Yes',
+            '0'   => 'No',
         ]);
         $mform->setDefault('retainfilenames', 0);
 
